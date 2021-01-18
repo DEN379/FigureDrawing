@@ -1,0 +1,13 @@
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\FigureDrawing.exe
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\FigureDrawing.deps.json
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\FigureDrawing.runtimeconfig.json
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\FigureDrawing.runtimeconfig.dev.json
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\FigureDrawing.dll
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\FigureDrawing.pdb
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.csprojAssemblyReference.cache
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.AssemblyInfoInputs.cache
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.AssemblyInfo.cs
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.csproj.CoreCompileInputs.cache
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.dll
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.pdb
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.genruntimeconfig.cache
