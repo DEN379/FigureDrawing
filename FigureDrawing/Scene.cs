@@ -6,30 +6,29 @@ namespace FigureDrawing
 {
     class Scene
     {
-        List<Figure> figures;
         char[,] scene;
-
+        public List<Figure> Figures { get; private set; }
         public Scene()
         {
-            figures = new List<Figure>();
+            Figures = new List<Figure>();
             scene = new char[35, 70];
         }
 
         public void AddFigure(Figure figure)
         {
-            figures.Add(figure);
+            Figures.Add(figure);
             DisplayShapes();
         }
         public void RemoveFigure(Figure figure)
         {
-            figures.Remove(figure);
+            Figures.Remove(figure);
             scene = new char[35, 70];
             DisplayShapes();
         }
 
         public void DisplayShapes()
         {
-            foreach (Figure f in figures)
+            foreach (Figure f in Figures)
             {
                 for (int i = 0; i < f.Shape.GetLength(0); i++)
                 {

@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
 
 namespace FigureDrawing
 {
     class Rectangle : Figure
     {
+        public Rectangle(Scene scene, int width)
+        {
+            if (scene.Figures.Count == 0) Id = 0;
+            else
+                Id = scene.Figures.Select(n => n.Id).Max() + 1;
+            Draw(width);
+        }
         public override char[,] Draw(int width)
         {
             char[,] rectangle = new char[width, width];
@@ -15,10 +20,14 @@ namespace FigureDrawing
                 {
                     rectangle[i, j] = (char)(Id + '0');
                 }
-                //rectangle[i, 0] = '\n';
             }
             Shape = rectangle;
             return rectangle;
+        }
+
+        public void setID()
+        {
+            
         }
     }
 }

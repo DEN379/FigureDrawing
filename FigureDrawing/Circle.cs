@@ -1,11 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FigureDrawing
 {
     class Circle : Figure
     {
+        public Circle(Scene scene, int width)
+        {
+            if (scene.Figures.Count == 0) Id = 0;
+            else
+                Id = scene.Figures.Select(n => n.Id).Max() + 1;
+            Draw(width);
+        }
         public override char[,] Draw(int radius)
         {
             int width = radius;

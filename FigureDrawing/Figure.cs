@@ -1,35 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace FigureDrawing
 {
     abstract class Figure
     {
-        private int x;
-        private int y;
-        private int id;
-        private char[,] shape;
-        public int X
-        {
-            get => x;
-            set => x = value;
-        }
-        public int Y
-        {
-            get => y;
-            set => y = value;
-        }
-        public int Id
-        {
-            get => id;
-            set => id = value;
-        }
-        public char[,] Shape
-        {
-            get => shape;
-            set => shape = value;
-        }
+        public int X { get; set; }
+        public int Y { get; set; }
+        public int Id { get; set; }
+        public char[,] Shape { get; protected set; }
         public abstract char[,] Draw(int width);
     }
 }
