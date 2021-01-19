@@ -26,10 +26,5 @@ namespace FigureDrawing
             Shape = rectangle;
             return rectangle;
         }
-
-        public void setID()
-        {
-            
-        }
     }
 }

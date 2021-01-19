@@ -3,19 +3,23 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 
 namespace FigureDrawing
 {
     class Scene
     {
+        public static readonly int SCENE_HEIGTH = 20;
+        public static readonly int SCENE_WIDTH = 70;
+
         [JsonProperty("scene")]
-        char[,] scene;
+        public char[,] scene;
         [JsonProperty("Figures")]
-        public List<Figure> Figures { get; private set; }
+        public List<Figure> Figures { get; set; }
         public Scene()
         {
             Figures = new List<Figure>();
-            scene = new char[35, 70];
+            scene = new char[SCENE_HEIGTH, SCENE_WIDTH];
         }
 
         public void MoveFigureUp(Figure figure)
@@ -28,8 +32,7 @@ namespace FigureDrawing
         }
         public void MoveFigureDown(Figure figure)
         {
-            //if (figure.X == 0) return;
-            
+            if (figure.Y + figure.Shape.GetLength(0) >= SCENE_HEIGTH) return;
             var shape = figure.Shape;
             RemoveFigure(figure);
             DisplayShape(shape, figure.X,  ++figure.Y);
@@ -37,7 +40,7 @@ namespace FigureDrawing
         }
         public void MoveFigureLeft(Figure figure)
         {
-            if (figure.Y == 0) return;
+            if (figure.X == 0) return;
             var shape = figure.Shape;
             RemoveFigure(figure);
             DisplayShape(shape, --figure.X , figure.Y);
@@ -45,13 +48,11 @@ namespace FigureDrawing
         }
         public void MoveFigureRight(Figure figure)
         {
-            //if (figure.X == 0) return;
+            if (figure.X + figure.Shape.GetLength(1) >= SCENE_WIDTH) return;
             var shape = figure.Shape;
             RemoveFigure(figure);
             DisplayShape(shape,  ++figure.X, figure.Y);
             Figures.Add(figure);
-            //AddFigure(figure);
-            //DisplayShapes();
         }
 
         public void AddFigure(Figure figure)
@@ -63,7 +64,7 @@ namespace FigureDrawing
         public void RemoveFigure(Figure figure)
         {
             Figures.Remove(figure);
-            scene = new char[35, 70];
+            scene = new char[SCENE_HEIGTH, SCENE_WIDTH];
             DisplayShapes();
         }
 
@@ -105,13 +106,13 @@ namespace FigureDrawing
         public void OrderFiguresById()
         {
             Figures = Figures.OrderBy(n => n.Id).ToList<Figure>();
-            scene = new char[35, 70];
+            scene = new char[SCENE_HEIGTH, SCENE_WIDTH];
             DisplayShapes();
         }
         public void OrderFiguresBySquare()
         {
             Figures = Figures.OrderBy(n => n.Shape.Length).ToList<Figure>();
-            scene = new char[35, 70];
+            scene = new char[SCENE_HEIGTH, SCENE_WIDTH];
             DisplayShapes();
         }
         public string PrintScene()

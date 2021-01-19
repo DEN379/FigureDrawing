@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.Text.Json.Serialization;
 
 namespace FigureDrawing
 {
@@ -12,7 +13,7 @@ namespace FigureDrawing
         [JsonProperty("Id")]
         public int Id { get; set; }
         [JsonProperty("Shape")]
-        public char[,] Shape { get; protected set; }
+        public char[,] Shape { get; set; }
         public virtual char[,] Draw(int width)
         {
             return null;
