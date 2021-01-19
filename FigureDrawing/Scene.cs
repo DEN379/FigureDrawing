@@ -1,12 +1,16 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace FigureDrawing
 {
     class Scene
     {
+        [JsonProperty("scene")]
         char[,] scene;
+        [JsonProperty("Figures")]
         public List<Figure> Figures { get; private set; }
         public Scene()
         {
@@ -14,11 +18,48 @@ namespace FigureDrawing
             scene = new char[35, 70];
         }
 
+        public void MoveFigureUp(Figure figure)
+        {
+            if (figure.Y == 0) return;
+            var shape = figure.Shape;
+            RemoveFigure(figure);
+            DisplayShape(shape, figure.X, --figure.Y );
+            Figures.Add(figure);
+        }
+        public void MoveFigureDown(Figure figure)
+        {
+            //if (figure.X == 0) return;
+            
+            var shape = figure.Shape;
+            RemoveFigure(figure);
+            DisplayShape(shape, figure.X,  ++figure.Y);
+            Figures.Add(figure);
+        }
+        public void MoveFigureLeft(Figure figure)
+        {
+            if (figure.Y == 0) return;
+            var shape = figure.Shape;
+            RemoveFigure(figure);
+            DisplayShape(shape, --figure.X , figure.Y);
+            Figures.Add(figure);
+        }
+        public void MoveFigureRight(Figure figure)
+        {
+            //if (figure.X == 0) return;
+            var shape = figure.Shape;
+            RemoveFigure(figure);
+            DisplayShape(shape,  ++figure.X, figure.Y);
+            Figures.Add(figure);
+            //AddFigure(figure);
+            //DisplayShapes();
+        }
+
         public void AddFigure(Figure figure)
         {
             Figures.Add(figure);
             DisplayShapes();
         }
+
         public void RemoveFigure(Figure figure)
         {
             Figures.Remove(figure);
@@ -26,17 +67,22 @@ namespace FigureDrawing
             DisplayShapes();
         }
 
+        public Figure GetFigureById(int id)
+        {
+            return Figures.FirstOrDefault(n => n.Id == id);
+        }
+
         public void DisplayShapes()
         {
             foreach (Figure f in Figures)
             {
-                for (int i = 0; i < f.Shape.GetLength(0); i++)
+                for (int i = f.Y; i < f.Shape.GetLength(0) + f.Y; i++)
                 {
-                    for (int j = 0; j < f.Shape.GetLength(1); j++)
+                    for (int j = f.X; j < f.Shape.GetLength(1) + f.X; j++)
                     {
-                        if (f.Shape[i, j] != 0 && f.Shape[i , j] != 32)
+                        if (f.Shape[i - f.Y, j - f.X] != 0 && f.Shape[i - f.Y, j - f.X] != 32)
                         {
-                            scene[i, j] = f.Shape[i , j];
+                            scene[i, j] = f.Shape[i - f.Y, j - f.X];
                         }
                     }
                 }
@@ -55,6 +101,18 @@ namespace FigureDrawing
                 }
             }
             
+        }
+        public void OrderFiguresById()
+        {
+            Figures = Figures.OrderBy(n => n.Id).ToList<Figure>();
+            scene = new char[35, 70];
+            DisplayShapes();
+        }
+        public void OrderFiguresBySquare()
+        {
+            Figures = Figures.OrderBy(n => n.Shape.Length).ToList<Figure>();
+            scene = new char[35, 70];
+            DisplayShapes();
         }
         public string PrintScene()
         {
@@ -84,5 +142,10 @@ namespace FigureDrawing
 
             return sb.ToString();
         }
+
+
+
+
+
     }
 }

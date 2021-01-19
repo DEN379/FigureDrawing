@@ -10,6 +10,8 @@ namespace FigureDrawing
             if (scene.Figures.Count == 0) Id = 0;
             else
             Id = scene.Figures.Select(n => n.Id).Max() + 1;
+            X = 0;
+            Y = 0;
             Draw(width);
         }
         public override char[,] Draw(int width)
