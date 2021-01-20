@@ -1,7 +1,6 @@
 ﻿//using Newtonsoft.Json;
 using System;
 using System.IO;
-using System.Linq;
 using System.Text.Json;
 
 namespace FigureDrawing
@@ -31,7 +30,6 @@ Created by Denys Sakadel
                     break;
                 case 1:
                     Scene sceneFromJson = FromJson();
-                    //break;
                     SceneMenu(sceneFromJson);
                     break;
                 case 2:
@@ -73,14 +71,10 @@ Created by Denys Sakadel
                     ReturnToMainMenu(scene);
                     break;
             }
-
-
         }
 
         private void AddFigure(Scene scene)
         {
-            
-            
             string[] options = { "Triangle", "Rectangle", "Circle", "Line" };
             Menu menu = new Menu(scene, options);
             int selected = menu.Run();
@@ -250,10 +244,6 @@ Created by Denys Sakadel
 
 
 
-
-
-
-
         static void Main(string[] args)
         {
             Console.SetWindowSize(71, 35);
@@ -265,14 +255,14 @@ Created by Denys Sakadel
         public static void ToJson(Scene scene)
         {
             //var js = JsonConvert.SerializeObject(scene, Formatting.Indented);
-            var js = JsonSerializer.Serialize(scene);   //<-- didnt work with char[,]
+            var js = JsonSerializer.Serialize(scene);   //<-- didnt work with char[,] and char[][]
             File.WriteAllText("scene.json", js);
         }
         public static Scene FromJson()
         {
             var jsonString = File.ReadAllText("scene.json");
-            var sc = JsonSerializer.Deserialize<Scene>(jsonString);   //<-- didnt work with char[,]
-                                                                      // var sc = JsonConvert.DeserializeObject<Scene>(jsonString);
+            var sc = JsonSerializer.Deserialize<Scene>(jsonString);   //<-- didnt work with char[,] and char[][]
+            // var sc = JsonConvert.DeserializeObject<Scene>(jsonString);
 
             sc.scene = new char[Scene.SCENE_HEIGTH][];
             for (int i = 0; i < sc.scene.Length; i++)

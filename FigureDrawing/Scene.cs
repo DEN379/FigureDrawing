@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿//using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +12,7 @@ namespace FigureDrawing
         public static readonly int SCENE_HEIGTH = 20;
         public static readonly int SCENE_WIDTH = 70;
 
+        //all properties was private, but jsonserialize didnt work
         //[JsonPropertyName("scene")]
         public char[][] scene;
         [JsonPropertyName("Figures")]
@@ -159,10 +160,5 @@ namespace FigureDrawing
 
             return sb.ToString();
         }
-
-
-
-
-
     }
 }

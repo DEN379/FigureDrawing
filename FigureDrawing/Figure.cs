@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace FigureDrawing
 {
+    //was abstact class but it's didn't work with jsonserializer
     class Figure
     {
         [JsonPropertyName("X")]
