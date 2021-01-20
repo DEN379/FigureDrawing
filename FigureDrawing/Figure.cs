@@ -1,35 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿//using Newtonsoft.Json;
+using System;
+using System.Text.Json.Serialization;
 
 namespace FigureDrawing
 {
-    abstract class Figure
+    //was abstact class but it's didn't work with jsonserializer
+    class Figure
     {
-        private int x;
-        private int y;
-        private int id;
-        private char[,] shape;
-        public int X
+        [JsonPropertyName("X")]
+        public int X { get; set; }
+        [JsonPropertyName("Y")]
+        public int Y { get; set; }
+        [JsonPropertyName("Id")]
+        public int Id { get; set; }
+        [JsonPropertyName("Shape")]
+        public char[][] Shape { get; set; }
+        public virtual char[][] Draw(int width)
         {
-            get => x;
-            set => x = value;
+            return null;
         }
-        public int Y
-        {
-            get => y;
-            set => y = value;
-        }
-        public int Id
-        {
-            get => id;
-            set => id = value;
-        }
-        public char[,] Shape
-        {
-            get => shape;
-            set => shape = value;
-        }
-        public abstract char[,] Draw(int width);
     }
 }

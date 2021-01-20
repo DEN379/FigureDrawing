@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "nD7drMh5973Sk9ZYex5PsuefCmnpoBqweaus056ACVkdBZYK9pV2GOvC/zTfcdIjNaFMwdh/3dvyWue5922ERA==",
+  "dgSpecHash": "dJuyHU8nf/DdW2pfaR/rK9T5TdG8nU6HIBtsqacwHeJ5fkLeBwXrAtQA1nzIS+jW9HBogtZ6dUhnshOcIteqOA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Dennis\\source\\Project1\\FigureDrawing\\FigureDrawing\\FigureDrawing.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Dennis\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

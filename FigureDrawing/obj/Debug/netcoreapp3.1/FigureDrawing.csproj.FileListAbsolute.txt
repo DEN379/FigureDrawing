@@ -7,7 +7,9 @@ C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp
 C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.csprojAssemblyReference.cache
 C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.AssemblyInfoInputs.cache
 C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.AssemblyInfo.cs
-C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.csproj.CoreCompileInputs.cache
 C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.dll
 C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.pdb
 C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.genruntimeconfig.cache
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.csproj.CoreCompileInputs.cache
+C:\Users\Dennis\source\Project1\FigureDrawing\FigureDrawing\obj\Debug\netcoreapp3.1\FigureDrawing.csproj.CopyComplete
