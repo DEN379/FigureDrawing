@@ -14,12 +14,16 @@ namespace FigureDrawing
             Y = 0;
             Draw(width);
         }
-        public override char[,] Draw(int width)
+        public override char[][] Draw(int width)
         {
-            char[,] line = new char[1, width];
-            for(int i = 0; i < width; i++)
+            char[][] line = new char[1][];
+            for (int i = 0; i < line.Length; i++)
             {
-                line[0, i] = (char)(Id + '0');
+                line[i] = new char[width];
+            }
+            for (int i = 0; i < width; i++)
+            {
+                line[0][i] = (char)(Id + '0');
                 
             }
             Shape = line;

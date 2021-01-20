@@ -13,14 +13,18 @@ namespace FigureDrawing
             Y = 0;
             Draw(width);
         }
-        public override char[,] Draw(int width)
+        public override char[][] Draw(int width)
         {
-            char[,] rectangle = new char[width, width];
+            char[][] rectangle = new char[width][];
+            for (int i = 0; i < rectangle.Length; i++)
+            {
+                rectangle[i] = new char[width];
+            }
             for (int i = 0; i < width; i++)
             {
                 for (int j = 0; j < width; j++)
                 {
-                    rectangle[i, j] = (char)(Id + '0');
+                    rectangle[i][j] = (char)(Id + '0');
                 }
             }
             Shape = rectangle;

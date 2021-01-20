@@ -15,7 +15,7 @@ namespace FigureDrawing
             Y = 0;
             Draw(width);
         }
-        public override char[,] Draw(int radius)
+        public override char[][] Draw(int radius)
         {
             int width = radius;
             int length = (int)(radius * 1.5);
@@ -33,30 +33,34 @@ namespace FigureDrawing
             }
             string s = sb.ToString();
             string[] arr = s.Split("\n");
-            char[][] ch = new char[width * 2][];
-            for(int i = 0; i < ch.Length; i++) 
+            char[][] circle = new char[width * 2][];
+            for(int i = 0; i < circle.Length; i++) 
             {
-                ch[i] = new char[length * 2];
+                circle[i] = new char[length * 2];
             }
             int k = 0;
             foreach (string a in arr)
             {
-                ch[k] = a.ToCharArray();
+                circle[k] = a.ToCharArray();
                 k++;
             }
 
-            char[,] circle = new char[width * 2, length * 2];
 
-
-            for(int i=0; i<ch.Length; i++)
+            char[][] circle2 = new char[width * 2][];
+            for (int i = 0; i < circle2.Length; i++)
             {
-                for(int j=0;j<ch[i].Length-1; j++)
+                circle2[i] = new char[length * 2];
+            }
+
+            for (int i = 0; i < circle.Length; i++)
+            {
+                for (int j = 0; j < circle[i].Length - 1; j++)
                 {
-                    circle[i, j] = ch[i][j];
+                    circle2[i][j] = circle[i][j];
                 }
             }
-            Shape = circle;
-            return circle;
+            Shape = circle2;
+            return circle2;
         }
     }
 }

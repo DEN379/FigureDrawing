@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿//using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Linq;
@@ -18,7 +18,8 @@ namespace FigureDrawing
 \_|   |_|\__, |\__,_|_|  \___| |___/ |_|  \__,_| \_/\_/ |_|_| |_|\__, |
           __/ |                                                   __/ |
          |___/                                                   |___/ 
-Created by Denys Sakadel";
+Created by Denys Sakadel
+";
             string[] options = { "Scene Menu", "Open last saved scene", "Exit" };
             Menu menu = new Menu(logo, options);
             int selected = menu.Run();
@@ -263,15 +264,22 @@ Created by Denys Sakadel";
 
         public static void ToJson(Scene scene)
         {
-            var js = JsonConvert.SerializeObject(scene, Formatting.Indented);
-            //var js = JsonSerializer.Serialize(scene);   //<-- didnt work with char[,]
+            //var js = JsonConvert.SerializeObject(scene, Formatting.Indented);
+            var js = JsonSerializer.Serialize(scene);   //<-- didnt work with char[,]
             File.WriteAllText("scene.json", js);
         }
         public static Scene FromJson()
         {
             var jsonString = File.ReadAllText("scene.json");
-            //var sc = JsonSerializer.Deserialize<Scene>(jsonString);   //<-- didnt work with char[,]
-            var sc = JsonConvert.DeserializeObject<Scene>(jsonString);
+            var sc = JsonSerializer.Deserialize<Scene>(jsonString);   //<-- didnt work with char[,]
+                                                                      // var sc = JsonConvert.DeserializeObject<Scene>(jsonString);
+
+            sc.scene = new char[Scene.SCENE_HEIGTH][];
+            for (int i = 0; i < sc.scene.Length; i++)
+            {
+                sc.scene[i] = new char[Scene.SCENE_WIDTH];
+            }
+            sc.DisplayShapes();
             return sc;
         }
     }
